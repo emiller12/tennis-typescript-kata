@@ -2,7 +2,15 @@
 
 class TennisGameImpl implements TennisGame {
 
-  wonPoint(player: Player) {
+  private players;
+
+  constructor (
+      thePlayers
+  ) {
+    this.players = thePlayers;
+  }
+
+  wonPoint(player) {
 
   }
 
