@@ -9,7 +9,7 @@ interface TennisGame {
   /** 
    * Notfies this TennisGame instance that the player has won a point.
    */
-  wonPoint(player) : void;
+  wonPoint(player : Player) : void;
   
   /** 
    * Returns the verbal score of the game. 

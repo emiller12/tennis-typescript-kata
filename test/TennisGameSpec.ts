@@ -15,13 +15,47 @@ describe('For a TennisGame', function() {
     expect(game.getScore()).toBe('love-all');
   });
 
-  it('when player 1 wins a point the score should be "15-love"', function() {
+  it('when player1 wins a point the score should be "15-love"', function() {
     game.wonPoint(somePlayers[0]);
     expect(game.getScore()).toBe('15-love');
   });
 
-  it('when a the scores a level, and at least 3 points have been scored by each player, then the score should be "deuce"', function() {
-    expect(game.getScore()).toBe('love-all');
+  it('when both players have won 1 point the score should be "15-all"', function() {
+    game.wonPoint(somePlayers[0]);
+    game.wonPoint(somePlayers[1]);
+    expect(game.getScore()).toBe('15-all');
+  });
+
+  it('when both players have won 2 points the score should be "30-all"', function() {
+    game.wonPoint(somePlayers[0]);
+    game.wonPoint(somePlayers[1]);
+    game.wonPoint(somePlayers[0]);
+    game.wonPoint(somePlayers[1]);
+    expect(game.getScore()).toBe('30-all');
+  });
+
+  it('when player1 has won 1 point and player2 has won 2 points the score should be "15-30"', function() {
+    game.wonPoint(somePlayers[0]);
+    game.wonPoint(somePlayers[1]);
+    game.wonPoint(somePlayers[1]);
+    expect(game.getScore()).toBe('15-30');
+  });
+
+  it('when a the scores are level, and at least 3 points have been scored by each player, then the score should be "deuce"', function() {
+    game.wonPoint(somePlayers[0]);
+    game.wonPoint(somePlayers[0]);
+    game.wonPoint(somePlayers[0]);
+    game.wonPoint(somePlayers[0]);
+    game.wonPoint(somePlayers[0]);
+    game.wonPoint(somePlayers[1]);
+    game.wonPoint(somePlayers[1]);
+    game.wonPoint(somePlayers[1]);
+    game.wonPoint(somePlayers[1]);
+    game.wonPoint(somePlayers[1]);
+    expect(game.getScore()).toBe('deuce');
+  });
+
+  it('when at least 3 points have been scored by each player, and player2 wins the next point, then the score should be "Advantage player2"', function() {
     game.wonPoint(somePlayers[0]);
     game.wonPoint(somePlayers[0]);
     game.wonPoint(somePlayers[0]);
@@ -29,8 +63,37 @@ describe('For a TennisGame', function() {
     game.wonPoint(somePlayers[1]);
     game.wonPoint(somePlayers[1]);
     expect(game.getScore()).toBe('deuce');
+    game.wonPoint(somePlayers[1]);
+    expect(game.getScore()).toBe('Advantage player2'); // You may need to modify this depending on your implementation of the player interface
   });
 
+  it('when less 3 points have been scored by each player, and player1 gets to 4 points, then the score should be "Game player1"', function() {
+    game.wonPoint(somePlayers[0]);
+    game.wonPoint(somePlayers[0]);
+    game.wonPoint(somePlayers[0]);
+    game.wonPoint(somePlayers[1]);
+    expect(game.getScore()).toBe('40-15');
+    game.wonPoint(somePlayers[0]);
+    expect(game.getScore()).toBe('Game player1'); // You may need to modify this depending on your implementation of the player interface
+  });
+
+  it('when at least 3 points have been scored by each player, and player1 is 2 points ahead, then the score should be "Game player1"', function() {
+    game.wonPoint(somePlayers[0]);
+    game.wonPoint(somePlayers[0]);
+    game.wonPoint(somePlayers[0]);
+    game.wonPoint(somePlayers[0]);
+    game.wonPoint(somePlayers[0]);
+    game.wonPoint(somePlayers[1]);
+    game.wonPoint(somePlayers[1]);
+    game.wonPoint(somePlayers[1]);
+    game.wonPoint(somePlayers[1]);
+    game.wonPoint(somePlayers[1]);
+    expect(game.getScore()).toBe('deuce');
+    game.wonPoint(somePlayers[0]);
+    expect(game.getScore()).toBe('Advantage player1'); // You may need to modify this depending on your implementation of the player interface
+    game.wonPoint(somePlayers[0]);
+    expect(game.getScore()).toBe('Game player1'); // You may need to modify this depending on your implementation of the player interface
+  });
   
 });
 
