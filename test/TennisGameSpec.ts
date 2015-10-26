@@ -8,7 +8,6 @@ describe('For a TennisGame', function() {
 
   beforeEach(function() {
     //TODO: Create some players
-
     game = new TennisGameImpl(somePlayers);
   });
 

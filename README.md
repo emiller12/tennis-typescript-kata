@@ -1,9 +1,7 @@
 # Tennis Kata: Typescript, Jasmine and BDD
 
-This Kata provides a starting point for practicing *Behavior Driven Development* (BDD) with *Typescript* as programming language and
-*Jasmine* to specify your tests.
-
-If you don't know the term BDD yet, read [this blog post](http://dannorth.net/introducing-bdd/) from the inventor of the term or the [behaviour-driven.org wiki](http://behaviour-driven.org). In summary BDD it is about writing tests first and additionally documenting the behavioural intent of the system with these tests.
+This Kata provides a starting point for learning and practicing *Typescript* as programming a language, it uses
+*Jasmine* to specify tests.
 
 ## Preparation 
 
@@ -32,7 +30,7 @@ To build and run this project you need to install [Node.js](http://nodejs.org/).
 
 1. Open your favorite text editor with the following files:
 
-  - TennisGame.ts - The given interface for this kata. Should not be modified.
+  - TennisGame.ts - The given interface for this kata. You will need to fill out the "Player" interface in here.
   - TennisGameImpl.ts - Your implementation of the TennisGame interface goes here.
   - TennisGameSpec.ts - Your test code goes here.
   
@@ -65,7 +63,7 @@ The score is "Game A".
 
 ## Acknowledgements
 
-This Kata for TDD is based on the Tennis Kata for refactoring of Emily Bache. 
+This Kata is based on the Tennis Kata for refactoring of Emily Bache.
 She provides this Kata for several programming languages. 
 Here is her [blog post](http://emilybache.blogspot.co.at/2011/08/refactoring-kata-fun.html)
 and [the code is on github](https://github.com/emilybache/Tennis-Refactoring-Kata).
